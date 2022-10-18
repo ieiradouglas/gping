@@ -18,9 +18,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <BrowserRouter>
       <Routes>
         <Route index path="/" element={<Login/>}/>
-        <Route path="home" element={<Home/>}/>
-        <Route path="list" element={<List/>}/>
-        <Route path="register" element={<Register/>}/>
+        <Route path="/home" element={<Home/>}/>
+        <Route path="/list" element={<List/>}/>
+        <Route path="/register" element={<Register/>}/>
       </Routes>
     </BrowserRouter>
 )
