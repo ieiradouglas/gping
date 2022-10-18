@@ -15,7 +15,6 @@ import List from './pages/List'
 import Register from './pages/Register'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
     <BrowserRouter>
       <Routes>
         <Route index path="/" element={<Login/>}/>
@@ -24,5 +23,4 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <Route path="register" element={<Register/>}/>
       </Routes>
     </BrowserRouter>
-  </React.StrictMode>
 )
