@@ -10,7 +10,7 @@ export default function Aside({children}){
 
   return(
     <div className="flex flex-row h-screen">
-      <aside className=" flex flex-col items-center justify-between flex-1 max-w-[180px] border-gray-900 border-r-2 border-solid shadow-lg shadow-slate-900 md:max-w-[80px]">
+      <aside className=" flex flex-col items-center justify-between flex-1 max-w-[180px] border-gray-900 border-r-2 border-solid shadow-lg shadow-slate-900 md:max-w-[80px] md:py-8">
         <div>
           <img className="p-[10px] py-4 border-gray-900 border-b-2 border-solid " src={logoVertical} />
           <div className="flex flex-col gap-3 items-center mt-4 text-center uppercase text-[#EDF2F4]">
@@ -21,7 +21,7 @@ export default function Aside({children}){
         </div>
         <Button onClick={()=>logout()} className="w-full max-w-[150px] h-10 p-2 mb-4 uppercase" text="Sair" to="/"/>
       </aside>
-      <main className="flex-1 overflow-auto">
+      <main className="flex-1 overflow-auto md:py-8">
         {children}
       </main>
     </div>
