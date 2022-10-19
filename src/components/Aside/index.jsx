@@ -1,8 +1,20 @@
+import { useEffect } from 'react'
+import {useNavigate} from 'react-router-dom'
 import logoVertical from '../../assets/img/logoVertical.svg'
 
 import Button from '../Button'
 
 export default function Aside({children}){
+
+  const logged = window.localStorage.getItem('logged');
+  const navigator = useNavigate();
+
+  useEffect(()=>{
+    if(!logged){
+      navigator('/')
+    }
+  },[])
+
 
   function logout(){
     window.localStorage.removeItem('logged')

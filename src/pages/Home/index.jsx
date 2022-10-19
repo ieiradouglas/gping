@@ -2,26 +2,15 @@
 import Aside from '../../components/Aside'
 import {user} from '../../data'
 
-import {useEffect} from 'react'
-import { useNavigate } from 'react-router-dom'
-
 export default function Home(){
- 
-  const logged = window.localStorage.getItem('logged');
-  const navigate = useNavigate();
+  
+  return( 
 
-  useEffect(()=>{
-    if(!logged){
-      navigate('/')
-    }
-  },[])
- 
-  return(
     <Aside>
       <div className="flex justify-center flex-col">
         <div className="flex flex-wrap gap-5 justify-center mt-4 mx-3">
           <figure className="flex flex-1 gap-5 flex-col items-center p-9 max-w-[350px] border-2 border-solid border-[#000] rounded-xl box-border md:max-w-full shadow-lg shadow-slate-900">
-            <img className="rounded-full max-w-[150px] max-h-[150px]" src={user.img}/>
+            <img className="rounded-full max-w-[150px] max-h-[150px] border-2 border-solid border-white" src={user.img}/>
             <figcaption>{user.nome}</figcaption>
           </figure>
 
