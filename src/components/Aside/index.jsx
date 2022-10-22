@@ -33,7 +33,7 @@ export default function Aside({children}){
         </div>
         <Button onClick={()=>logout()} className="w-full max-w-[150px] h-10 p-2 mb-4 uppercase" text="Sair" to="/"/>
       </aside>
-      <main className="flex-1 overflow-auto md:pt-4 md:pb-10">
+      <main className="flex-1 overflow-auto">
         {children}
       </main>
     </div>

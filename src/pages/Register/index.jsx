@@ -59,10 +59,10 @@ export default function Register(){
 
   return(
     <Aside>
-      <div className="w-full h-screen flex items-center justify-center">
-        <form className="flex flex-col items-center justify-center p-12 mx-3 gap-4 md:gap-0 w-full max-w-[900px] max-h-full text-[#EDF2F4] border-2 border-solid border-[#000] rounded-xl shadow-lg shadow-slate-900">
-          <div className="flex gap-8 md:gap-0 w-full md:flex-col md:h-full">
-            <div className="flex flex-col flex-1 gap-4 md:gap-0 h-[500px]  w-full">
+      <div className="w-full h-auto flex items-start justify-center py-4">
+        <form className="flex flex-col items-center justify-center p-12 mx-3 gap-4 md:gap-4 w-full max-w-[900px] max-h-full text-[#EDF2F4] border-2 border-solid border-[#000] rounded-xl shadow-lg shadow-slate-900">
+          <div className="flex gap-8 md:gap-4 w-full md:flex-col md:h-full">
+            <div className="flex flex-col flex-1 gap-4 md:gap-4 h-[500px]  w-full">
 
               <label htmlFor="usuario">Usuário:</label>
               <Input onChange={handleChange} value={input.usuario} type="text" name="usuario" id="usuario" className="mb-8"/>
@@ -84,7 +84,7 @@ export default function Register(){
 
             </div>
 
-            <div className="flex flex-col flex-1 h-[500px]  w-full gap-6 md:gap-0 items-center self-start mt-[-30px]  md:order-[-1]">
+            <div className="flex flex-col flex-1 h-[500px]  w-full gap-6 md:gap-4 items-center self-start mt-[-30px]  md:order-[-1]">
 
               <img src={user.img} className="rounded-full max-h-[120px] max-w-[120px] border-2 border-solid border-white"/>
 
@@ -93,7 +93,7 @@ export default function Register(){
 
             </div>
             
-            <div className="flex flex-col flex-1 gap-4 md:gap-0 h-[500px]  w-full ">
+            <div className="flex flex-col flex-1 gap-4 md:gap-4 h-[500px]  w-full ">
 
               <label htmlFor="senha">Senha:</label>
               <Input onChange={handleChange} value={input.senha} type="password" name="senha" id="senha" className="mb-8"/>
