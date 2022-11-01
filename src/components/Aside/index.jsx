@@ -49,7 +49,7 @@ export default function Aside({children}){
             <Button  className="w-full max-w-[50px] p-2 flex justify-center align-center" to="/register"><img src={iconAddUser}/></Button>
           </div>
         </div>
-        <Button onClick={()=>logout()} className="w-full max-w-[50px] p-2 mb-5 flex justify-center align-center" to="/"><img src={iconLogout}/></Button>
+        <Button onClick={()=>logout()} className="w-full max-w-[50px] p-2 mb-12 flex justify-center align-center" to="/"><img src={iconLogout}/></Button>
       </aside>
       <main className="flex-1 overflow-auto">
         {children}
