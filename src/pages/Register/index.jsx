@@ -39,6 +39,7 @@ export default function Register(){
 
 
   const inputRef = useRef(null)
+  const imgRef = useRef(null)
 
   const [input, setInput] = useState({})
     
@@ -68,10 +69,21 @@ export default function Register(){
   } */
   
   const handleRegister = async(e) =>{
+    /* Upload() */
+    imgRef.current.src = inputRef.current.files[0]
     
-    
+    async function Upload(){
 
 
+      const {data, error} = await supabase.storage
+      .from('gping')
+      .upload(imgRef.current.src)
+      error != null ? console.log(error) : console.log('Sucesso!')
+    }
+
+
+
+    async function Register(){
     const { data, error } = await supabase
     .from('user')
     .insert([
@@ -87,8 +99,8 @@ export default function Register(){
         cidade: input.cidade,
         estado: input.estado,
     }])
+  }
 
-    console.log(error)
     
   }
 
@@ -122,7 +134,7 @@ export default function Register(){
 
             <div className="flex flex-col flex-1 h-[500px]  w-full gap-6 md:gap-4 items-center self-start mt-[-30px]  md:order-[-1]">
 
-              <img src={user.img} className="rounded-full max-h-[120px] max-w-[120px] border-2 border-solid border-white"/>
+              <img ref={imgRef} src={user.img} className="rounded-full max-h-[120px] max-w-[120px] border-2 border-solid border-white"/>
 
               <label htmlFor="arquivo" className="p-4 rounded-[5px] border-2 border-[#EDF2F4] border-solid hover:bg-[rgb(255,255,255,1)] hover:text-black hover:cursor-pointer">Selecionar</label>
               <Input ref={inputRef} type='file' name="arquivo" id="arquivo" className="hidden"/>
@@ -158,8 +170,9 @@ export default function Register(){
           onClick={
            ((e)=>{
               e.preventDefault()
-              console.log(inputRef.current.value)
-              /* handleRegister() */
+              console.log(inputRef.current.files[0])
+              console.log(imgRef.current.src)
+              handleRegister()
               /* handleClear() */
           })}>Enviar
         </button>
