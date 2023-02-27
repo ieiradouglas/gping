@@ -1,30 +1,44 @@
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
 import { useNavigate } from 'react-router-dom'
-
 import logoHorizontal from '../../assets/img/logoHorizontal.svg'
-import { useState } from 'react';
+import {useEffect,useState } from 'react';
+import {supabase} from '../../assets/supabase'
 
 export default function Login(){
 
   const [login, setLogin] = useState('');
   const [password, setPassword] = useState('');
+  
+  const [user, setUser] = useState({})
 
   const notify = (message) => toast(message)
 
   const navigate = useNavigate()
 
-  function Entry(){
-    if(login == 'admin' && password == 'admin'){
+  
+  const fetchUsers = async(e) =>{
+    const {data, error} = await supabase
+    .from('user')
+    .select('id,usuario,senha')
+    .eq('usuario', login)
+    return data
+  }
+  
+  async function Entry(){
+    const data = await fetchUsers();
+    console.log(data.error)
+    
+    if(login == data[0].usuario && password == data[0].senha){
+
       window.localStorage.setItem('logged', true)
       navigate('/home')
+
     }else{
-      console.log(login)
-      console.log(password)
+
       notify("Usuário ou senha inválido!")
+
     }
-    
   }
 
   return(

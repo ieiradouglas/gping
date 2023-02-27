@@ -1,9 +1,29 @@
 
 import Aside from '../../components/Aside'
 import {user} from '../../data'
+import {supabase} from '../../assets/supabase'
+import {useEffect, useState} from 'react'
 
 export default function Home(){
   
+  const [user,setUser] = useState([])
+
+  const fetchUser = async(e) => {
+    const {data} = await supabase
+    .from('user')
+    .select()
+    .eq('nome', 'Douglas')
+    setUser(data)
+  }
+
+  useEffect(()=>{
+    fetchUser()
+  },[])
+  
+  console.log(user)
+
+
+
   return( 
 
     <Aside>

@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import {useNavigate} from 'react-router-dom'
+import {Navigate, useNavigate} from 'react-router-dom'
 
 import Button from '../Button'
 
@@ -16,9 +16,7 @@ export default function Aside({children}){
   const navigator = useNavigate();
 
   useEffect(()=>{
-    if(!logged){
-      navigator('/')
-    }
+    logged != 'true' ? navigator('/') : false
   },[])
 
 
@@ -30,7 +28,7 @@ export default function Aside({children}){
     <div className="flex flex-row h-screen">
       <aside className=" flex flex-col items-center justify-between flex-1 max-w-[180px] border-gray-900 border-r-2 border-solid shadow-lg shadow-slate-900 md:hidden md:max-w-[80px]">
         <div>
-          <img className="p-[10px] py-4 border-gray-900 border-b-2 border-solid " src={logoVertical} />
+          <img className="p-[10px] py-4 border-gray-900 border-b-2 border-solid" src={logoVertical} />
           <div className="flex flex-col gap-3 items-center mt-4 text-center uppercase text-[#EDF2F4]">
             <Button className="w-full max-w-[150px] h-10 p-2" to="/home">Início</Button>
             <Button className="w-full max-w-[150px] h-10 p-2" to="/list">Lista</Button>
